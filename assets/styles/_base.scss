@@ -1,0 +1,27 @@
+nav {
+    background-color: $dhsorange1;
+}
+
+// Media Queries
+@media only screen and (max-width: 600px)  {
+    .dhs-bg {
+        text-align: center;
+        .container {
+            flex-direction: column;
+        }
+    }
+    .mid-blocks {
+        img {
+            width: 100px;
+        }    
+    }
+    
+    
+}
+@media only screen and (max-width: 400px)  {
+    .mid-blocks {
+        img {
+            width: 70px;
+        }    
+    }
+}

@@ -1,0 +1,54 @@
+<template>
+  <div class="container">
+    <b-container class="bv-example-row">
+      <b-row>
+        <b-col sm="7">
+          <pre>{{pages}}</pre>
+          <p>a:{{ title }}</p>
+          <p>b:{{ description }}</p>
+          <div v-html="content"></div>
+        </b-col>
+        <b-col sm="5">
+          <img :src="`http://dhs-api.test/storage/`+image" width="300" />
+        </b-col>
+      </b-row>
+    </b-container>
+  </div>
+</template>
+
+<script>
+// import axios from 'axios'
+// import { mapState, mapActions } from 'vuex'
+export default {
+  props: ['title', 'description', 'content', 'image'],
+  data () {
+    return {
+      // pages: [],
+      currentPage: ''
+    }
+  }
+  // async created () {
+  //   this.currentPage = this.$route.name
+  //   console.log('page: ', this.currentPage)
+  //   const config = {
+  //     headers: {
+  //       Accept: 'application/json'
+  //     }
+  //   }
+  //   try {
+  //     const res = await axios.get('http://dhs-api.test/api/pages/' + this.currentPage, config)
+  //     console.log('res:', res.data)
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // },
+  // computed: mapState(['pages']),
+  // methods: {
+  //   ...mapActions(['getPages'])
+  // }
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>
