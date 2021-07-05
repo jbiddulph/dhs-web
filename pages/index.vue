@@ -1,9 +1,15 @@
 <template>
   <div>
-    <Navigation />
-    <TopHeader />
+    <Navigation
+      :sitename="settings.website_name"
+    />
+    <TopHeader
+      :logo="settings.logo"
+      :telephone="settings.telephone"
+    />
     <Carousel />
     <MidBlocks />
+    {{ settings }}
     <ContentArea
       :title="page.title"
       :description="page.description"
@@ -15,8 +21,9 @@
 <script>
 export default {
   async asyncData ({ $axios }) {
+    const settings = await $axios.$get('http://dhs-api.test/api/settings')
     const page = await $axios.$get('http://dhs-api.test/api/pages/home')
-    return { page }
+    return { settings, page }
   },
   head () {
     return {

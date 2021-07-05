@@ -15,8 +15,9 @@
 <script>
 export default {
   async asyncData ({ params, $axios }) {
+    const settings = await $axios.$get('http://dhs-api.test/api/settings')
     const page = await $axios.$get(`http://dhs-api.test/api/pages/${params.slug}`)
-    return { page }
+    return { settings, page }
   },
   head () {
     return {

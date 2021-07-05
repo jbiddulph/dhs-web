@@ -3,7 +3,6 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="7">
-          <pre>{{pages}}</pre>
           <p>a:{{ title }}</p>
           <p>b:{{ description }}</p>
           <div v-html="content"></div>
@@ -20,7 +19,12 @@
 // import axios from 'axios'
 // import { mapState, mapActions } from 'vuex'
 export default {
-  props: ['title', 'description', 'content', 'image'],
+  props: [
+    'title',
+    'description',
+    'content',
+    'image'
+  ],
   data () {
     return {
       // pages: [],

@@ -2,15 +2,20 @@
   <div class="dhs-bg d-flex">
     <b-container>
       <img
-        :src="require(`@/assets/images/company-logo.png`)"
+        :src="'http://dhs-api.test/storage/'+logo"
       >
-      <span class="telephone">01903 872828</span>
+      <span class="telephone">{{ telephone }}</span>
     </b-container>
   </div>
 </template>
 
 <script>
-export default { }
+export default {
+  props: [
+    'logo',
+    'telephone'
+  ]
+}
 </script>
 
 <style lang="scss" scoped>
