@@ -11,10 +11,16 @@
 
 <script>
 export default {
-  props: [
-    'logo',
-    'telephone'
-  ]
+  props: {
+    logo: {
+      type: String,
+      default: ''
+    },
+    telephone: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
 

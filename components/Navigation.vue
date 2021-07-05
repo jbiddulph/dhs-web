@@ -35,7 +35,6 @@ export default {
     }
     try {
       const res = await axios.get('http://dhs-api.test/api/pages', config)
-      console.log('resxx:', res.data)
       this.menu = res.data
     } catch (err) {
       console.log(err)

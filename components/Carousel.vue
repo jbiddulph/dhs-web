@@ -47,6 +47,10 @@ export default {
       image3: require('@/assets/banners/boiler-warranty.png')
     }
   },
+  computed: mapGetters(['allHeaders']),
+  created () {
+    this.fetchHeaders()
+  },
   methods: {
     ...mapActions(['fetchHeaders']),
     onSlideStart (slide) {
@@ -55,11 +59,6 @@ export default {
     onSlideEnd (slide) {
       this.sliding = false
     }
-  },
-  computed: mapGetters(['allHeaders']),
-  created () {
-    this.fetchHeaders()
   }
-
 }
 </script>

@@ -5,10 +5,10 @@
         <b-col sm="7">
           <p>a:{{ title }}</p>
           <p>b:{{ description }}</p>
-          <div v-html="content"></div>
+          <div v-html="content" />
         </b-col>
         <b-col sm="5">
-          <img :src="`http://dhs-api.test/storage/`+image" width="300" />
+          <img :src="`http://dhs-api.test/storage/`+image" width="300">
         </b-col>
       </b-row>
     </b-container>
@@ -19,12 +19,36 @@
 // import axios from 'axios'
 // import { mapState, mapActions } from 'vuex'
 export default {
-  props: [
-    'title',
-    'description',
-    'content',
-    'image'
-  ],
+  props: {
+    title: {
+      type: String,
+      default: ''
+    },
+    description: {
+      type: String,
+      default: ''
+    },
+    content: {
+      type: String,
+      default: ''
+    },
+    image: {
+      type: String,
+      default: ''
+    },
+    showServices: {
+      type: Boolean,
+      default: false
+    },
+    showAccreditations: {
+      type: Boolean,
+      default: false
+    },
+    showCategories: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       // pages: [],
