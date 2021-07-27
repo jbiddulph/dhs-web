@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex w-100 carousel">
     <b-carousel
       id="carousel-1"
       v-model="slide"
@@ -21,7 +21,7 @@
               class="d-block img-fluid w-100"
               width="1024"
               height="480"
-              :src="'http://dhs-api.test/storage/'+header.image"
+              :src="'http://moapi.test/storage/'+header.image"
               :alt="header.title"
             >
           </template>
@@ -62,3 +62,37 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .carousel {
+    flex-direction: column;
+    object-fit: contain;
+    height: 100vh;
+    display: flex;
+  }
+  .carousel-inner > .item {
+    height: auto;
+    img {
+      height: 100vh;
+    }
+  }
+  .carousel-item {
+    img {
+      height: auto;
+      display: flex;
+      object-fit: cover;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .carousel {
+      height: 208px;
+    }
+    .carousel-item {
+      img {
+        height: 208px;
+        display: flex;
+        object-fit: cover;
+      }
+    }
+  }
+</style>

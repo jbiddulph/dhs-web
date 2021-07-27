@@ -8,7 +8,7 @@
           <div v-html="content" />
         </b-col>
         <b-col sm="5">
-          <img :src="`http://dhs-api.test/storage/`+image" width="300">
+          <img :src="`http://moapi.test/storage/`+image" width="300">
         </b-col>
       </b-row>
     </b-container>
@@ -64,7 +64,7 @@ export default {
   //     }
   //   }
   //   try {
-  //     const res = await axios.get('http://dhs-api.test/api/pages/' + this.currentPage, config)
+  //     const res = await axios.get('http://moapi.test/api/pages/' + this.currentPage, config)
   //     console.log('res:', res.data)
   //   } catch (err) {
   //     console.log(err)

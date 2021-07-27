@@ -1,10 +1,11 @@
 <template>
-  <div class="dhs-bg d-flex">
+  <div class="main-bg d-flex">
     <b-container>
       <img
-        :src="'http://dhs-api.test/storage/'+logo"
+        :src="'http://moapi.test/storage/'+logo"
+        height="100"
       >
-      <span class="telephone">{{ telephone }}</span>
+      <span class="slogan">{{ slogan }}</span>
     </b-container>
   </div>
 </template>
@@ -16,7 +17,7 @@ export default {
       type: String,
       default: ''
     },
-    telephone: {
+    slogan: {
       type: String,
       default: ''
     }
@@ -26,9 +27,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/styles/_variables.scss';
-.dhs-bg {
+.main-bg {
     display: flex;
-    background-color: $dhsblue;
+    background-color: $primary;
     padding: 20px 0;
     .container {
         display: flex;
@@ -36,9 +37,10 @@ export default {
         align-items: center;
         span {
             color:$white;
-            font-size: 1.8rem;
+            font-size: 2.4rem;
             font-weight: bold;
-            .telephone {
+            .slogan {
+              font-size: 2rem;
             }
         }
     }

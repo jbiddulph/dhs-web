@@ -1,10 +1,16 @@
+html, body {
+   font-family: "Oxygen";
+}
 nav {
-    background-color: $dhsorange1;
+    background-color: $secondary;
+}
+.navbar-dark .navbar-toggler {
+    border: none;
 }
 
 // Media Queries
 @media only screen and (max-width: 600px)  {
-    .dhs-bg {
+    .main-bg {
         text-align: center;
         .container {
             flex-direction: column;

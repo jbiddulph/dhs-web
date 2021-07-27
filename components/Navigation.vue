@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="lg" type="dark" variant="primary">
       <b-navbar-brand href="#">
-        Domestic Heating Services
+        <strong>Just Sussex</strong>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" />
@@ -34,7 +34,7 @@ export default {
       }
     }
     try {
-      const res = await axios.get('http://dhs-api.test/api/pages', config)
+      const res = await axios.get('http://moapi.test/api/pages', config)
       this.menu = res.data
     } catch (err) {
       console.log(err)

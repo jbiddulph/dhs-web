@@ -5,11 +5,10 @@
     />
     <TopHeader
       :logo="settings.logo"
-      :telephone="settings.telephone"
+      :slogan="settings.slogan"
     />
     <Carousel />
-    <MidBlocks />
-    {{ settings }}
+    <!-- <MidBlocks /> -->
     <ContentArea
       :title="page.title"
       :description="page.description"
@@ -21,8 +20,8 @@
 <script>
 export default {
   async asyncData ({ $axios }) {
-    const settings = await $axios.$get('http://dhs-api.test/api/settings')
-    const page = await $axios.$get('http://dhs-api.test/api/pages/home')
+    const settings = await $axios.$get('http://moapi.test/api/settings')
+    const page = await $axios.$get('http://moapi.test/api/pages/home')
     return { settings, page }
   },
   head () {

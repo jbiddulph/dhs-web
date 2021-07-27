@@ -16,11 +16,11 @@ export default {}
 <style lang="scss" scoped>
 @import '../assets/styles/_variables.scss';
 .bg-blue {
-    background-color: $dhsblue;
+    background-color: $primary;
 }
 .mid-blocks {
     display: flex;
-    background-color: $dhsblue;
+    background-color: $primary;
     padding: 20px 0;
     justify-content:center;
     list-style-type: none;
