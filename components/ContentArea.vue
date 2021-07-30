@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <b-container class="bv-example-row">
+  <div>
+    <div class="container">
       <b-row>
         <b-col sm="7">
           <p>a:{{ title }}</p>
@@ -11,7 +11,7 @@
           <img :src="`http://moapi.test/storage/`+image" width="300">
         </b-col>
       </b-row>
-    </b-container>
+    </div>
   </div>
 </template>
 

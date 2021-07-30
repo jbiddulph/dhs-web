@@ -1,0 +1,14 @@
+.venues {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.venue {
+    display: flex;
+    margin: 15px;
+    background-color: $secondary;
+    border-radius: 5px;
+    width:300px;
+    flex-direction: column;
+}

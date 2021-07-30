@@ -41,10 +41,7 @@ export default {
   data () {
     return {
       slide: 0,
-      sliding: null,
-      image1: require('@/assets/banners/water-softener.png'),
-      image2: require('@/assets/banners/worcester-hitachi-finance.png'),
-      image3: require('@/assets/banners/boiler-warranty.png')
+      sliding: null
     }
   },
   computed: mapGetters(['allHeaders']),

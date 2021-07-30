@@ -1,0 +1,17 @@
+ul.navbar-nav {
+    li.nav-item {
+        background-color: $secondary-darker;
+        border-radius: 5px;
+        padding: 0 5px;
+        margin: 0 5px;
+        a {
+            color: #fff;
+            :hover { 
+                border-radius: 5px;
+            }
+            .nuxt-link-active {
+                text-decoration: underline;
+            }
+        }
+    }
+}

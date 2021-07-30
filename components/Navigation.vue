@@ -9,8 +9,10 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav v-for="menulink in menu" :key="menulink.slug">
-          <b-nav-item :href="menulink.slug">
-            {{ menulink.linkname }}
+          <b-nav-item>
+            <b-link :to="`/${menulink.slug}`">
+              {{ menulink.linkname }}
+            </b-link>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -34,8 +36,9 @@ export default {
       }
     }
     try {
-      const res = await axios.get('http://moapi.test/api/pages', config)
-      this.menu = res.data
+      const pages = await axios.get('http://moapi.test/api/pages', config)
+      // const venues = await axios.get('http://moapi.test/api/venues', config)
+      this.menu = pages.data
     } catch (err) {
       console.log(err)
     }

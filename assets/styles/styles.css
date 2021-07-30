@@ -1,0 +1,85 @@
+.bg-primary {
+  background-color: #99b400 !important;
+}
+
+html, body {
+  font-family: "Oxygen";
+}
+
+nav {
+  background-color: #99b400;
+}
+
+.navbar-dark .navbar-toggler {
+  border: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-bg {
+    text-align: center;
+  }
+  .main-bg .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mid-blocks img {
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .mid-blocks img {
+    width: 70px;
+  }
+}
+
+ul.navbar-nav li.nav-item {
+  background-color: #97af11;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+
+ul.navbar-nav li.nav-item a {
+  color: #fff;
+}
+
+ul.navbar-nav li.nav-item a :hover {
+  border-radius: 5px;
+}
+
+ul.navbar-nav li.nav-item a .nuxt-link-active {
+  text-decoration: underline;
+}
+
+.venues {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.venue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 15px;
+  background-color: #99b400;
+  border-radius: 5px;
+  width: 300px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+/*# sourceMappingURL=styles.css.map */

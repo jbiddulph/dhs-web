@@ -25,7 +25,9 @@ export default {
   async asyncData ({ params, $axios }) {
     const settings = await $axios.$get('http://moapi.test/api/settings')
     const page = await $axios.$get(`http://moapi.test/api/pages/${params.slug}`)
-    return { settings, page }
+    const location = await $axios.$get(`http://moapi.test/api/locations/${params.location}`)
+    console.log('location: ', location)
+    return { settings, page, location }
   },
   head () {
     return {
