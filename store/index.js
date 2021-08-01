@@ -32,6 +32,12 @@ export const actions = {
     commit('setHeaders', headers.data)
     return headers.data
   },
+  async fetchLocationHeaders ({ commit }, location) {
+    console.log('LOCATIONxx: ', location)
+    const headers = await axios.get(`http://moapi.test/api/locations/${location}/headers`)
+    commit('getHeaders', headers)
+    return headers
+  },
   // GET LOGOS
   async getLogos ({ commit }) {
     const logos = await axios.get('http://moapi.test/api/logos')
@@ -50,7 +56,9 @@ export const mutations = {
   setHomePage: (state, homepage) => (state.homepage = homepage),
   setPages: (state, pages) => (state.pages = pages),
   setHeaders: (state, headers) => (state.headers = headers),
-
+  getHeaders (state, headers) {
+    state.headers.push({ ...headers })
+  },
   getLogos (state, logos) {
     state.logos.push({ ...logos })
   },

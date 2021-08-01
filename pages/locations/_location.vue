@@ -7,16 +7,18 @@
       :logo="settings.logo"
       :slogan="settings.slogan"
     />
-    <Carousel />
-    <!-- <MidBlocks /> -->
-    <ContentArea
-      :title="page.title"
-      :description="page.description"
-      :content="page.content"
-      :image="page.image"
+    <Carousel
+      :location="town"
     />
-    <div v-if="page.linkname == 'Venues'">
-      <Venues />
+    <div class="venues">
+      <h2>Here we are: {{ town }}</h2>
+      <div v-for="venue in location" :key="venue.id">
+        <div class="container venue">
+          <p>{{ venue.venuename }}</p>
+          <p><NuxtLink :to="`locations/${venue.town}`">{{ venue.town }}</NuxtLink></p>
+          <p>{{ venue.county }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -24,19 +26,19 @@
 export default {
   async asyncData ({ params, $axios }) {
     const settings = await $axios.$get('http://moapi.test/api/settings')
-    const page = await $axios.$get(`http://moapi.test/api/pages/${params.slug}`)
+    // const page = await $axios.$get(`http://moapi.test/api/pages/${params.slug}`)
     const location = await $axios.$get(`http://moapi.test/api/locations/${params.location}`)
-    console.log('location: ', location)
-    return { settings, page, location }
+    const town = params.location
+    return { settings, location, town }
   },
   head () {
     return {
-      title: this.page.title,
+      title: 'Title here',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.page.description
+          content: 'Description of page here'
         }
       ]
     }

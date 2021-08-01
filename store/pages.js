@@ -23,6 +23,13 @@ export const actions = {
     commit('getHeaders', headers)
     return headers
   },
+  // GET LOCATION HEADERS
+  async fetchLocationHeaders ({ commit, location }) {
+    console.log('LOCATIONxx: ', location)
+    const headers = await axios.get(`http://moapi.test/api/headers/${location}`)
+    commit('getHeaders', headers)
+    return headers
+  },
   // GET LOGOS
   async getLogos ({ commit }) {
     const logos = await axios.get('http://moapi.test/api/logos')

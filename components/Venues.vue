@@ -1,35 +1,33 @@
 <template>
-  <div class="venues">
-    <div v-for="venue in venues" :key="venue.id">
-      <div class="container venue">
-        <p>{{ venue.venuename }}</p>
-        <p><NuxtLink :to="`locations/${venue.town}`">{{ venue.town }}</NuxtLink></p>
-        <p>{{ venue.county }}</p>
-      </div>
+  <div>
+    <div class="container venue">
+      <p>{{ name }}</p>
+      <p><NuxtLink :to="`locations/${town}`">{{ town }}</NuxtLink></p>
+      <p>{{ county }}</p>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
-  data () {
-    return {
-      venues: []
-    }
-  },
+  props: [
+    'name',
+    'town',
+    'county'
+  ],
   async created () {
-    const config = {
-      headers: {
-        Accept: 'application/json'
-      }
-    }
-    try {
-      const venues = await axios.get('http://moapi.test/api/venues', config)
-      this.venues = venues.data.data
-    } catch (err) {
-      console.log(err)
-    }
+    // const config = {
+    //   headers: {
+    //     Accept: 'application/json'
+    //   }
+    // }
+    // try {
+    //   const venues = await axios.get('http://moapi.test/api/venues', config)
+    //   this.venues = venues.data.data
+    // } catch (err) {
+    //   console.log(err)
+    // }
   },
   head () {
     return {

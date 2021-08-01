@@ -12,20 +12,28 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
+    xherex:{{ selectedLoctaion }}
       <!-- Slides with img slot -->
       <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <div v-for="header in allHeaders" :key="header.id">
-        <b-carousel-slide>
-          <template #img>
-            <img
-              class="d-block img-fluid w-100"
-              width="1024"
-              height="480"
-              :src="'http://moapi.test/storage/'+header.image"
-              :alt="header.title"
-            >
-          </template>
-        </b-carousel-slide>
+      <div v-for="headers in allHeaders" :key="headers.id">
+        <div v-for="header in headers.data" :key="header.id">
+          <b-carousel-slide>
+            <template #img>
+              <div v-if="selectedLoctaion">
+                <h2>{{ selectedLoctaion }}</h2>
+                <h3>{{ header.title }}</h3>
+                <h4>{{ header.description }}</h4>
+              </div>
+              <img
+                class="d-block img-fluid w-100"
+                width="1024"
+                height="480"
+                :src="'http://moapi.test/storage/'+header.image"
+                :alt="header.title"
+              >
+            </template>
+          </b-carousel-slide>
+        </div>
       </div>
     </b-carousel>
     <!-- <p class="mt-4">
@@ -38,18 +46,31 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
+  // props: [
+  //   'location'
+  // ],
+  name: 'carousel',
+  props: ['location'],
   data () {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      selectedLoctaion: ''
     }
   },
   computed: mapGetters(['allHeaders']),
   created () {
-    this.fetchHeaders()
+    console.log('thislocation: ', this.location)
+    this.fetchLocationHeaders(this.location)
+  },
+  mounted () {
+    this.selectedLoctaion = this.location
   },
   methods: {
-    ...mapActions(['fetchHeaders']),
+    ...mapActions([
+      // 'fetchHeaders',
+      'fetchLocationHeaders'
+    ]),
     onSlideStart (slide) {
       this.sliding = true
     },
