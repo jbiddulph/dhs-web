@@ -28,7 +28,7 @@
                 class="d-block img-fluid w-100"
                 width="1024"
                 height="480"
-                :src="'http://moapi.test/storage/'+header.image"
+                :src="'https://www.jbiddulph.com/storage/'+header.image"
                 :alt="header.title"
               >
             </template>

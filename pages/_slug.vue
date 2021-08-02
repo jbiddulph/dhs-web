@@ -29,9 +29,9 @@
 <script>
 export default {
   async asyncData ({ params, $axios }) {
-    const settings = await $axios.$get('http://moapi.test/api/settings')
-    const venues = await $axios.get('http://moapi.test/api/venues')
-    const page = await $axios.$get(`http://moapi.test/api/pages/${params.slug}`)
+    const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
+    const venues = await $axios.get('https://www.jbiddulph.com/api/venues')
+    const page = await $axios.$get(`https://www.jbiddulph.com/api/pages/${params.slug}`)
     const venuelist = venues.data
     return {
       settings,

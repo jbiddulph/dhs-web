@@ -25,9 +25,9 @@
 <script>
 export default {
   async asyncData ({ params, $axios }) {
-    const settings = await $axios.$get('http://moapi.test/api/settings')
-    // const page = await $axios.$get(`http://moapi.test/api/pages/${params.slug}`)
-    const location = await $axios.$get(`http://moapi.test/api/locations/${params.location}`)
+    const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
+    // const page = await $axios.$get(`https://www.jbiddulph.com/api/pages/${params.slug}`)
+    const location = await $axios.$get(`https://www.jbiddulph.com/api/locations/${params.location}`)
     const town = params.location
     return { settings, location, town }
   },

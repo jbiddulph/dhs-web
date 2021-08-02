@@ -2,7 +2,7 @@
   <div class="main-bg d-flex">
     <b-container>
       <img
-        :src="'http://moapi.test/storage/'+logo"
+        :src="'https://www.jbiddulph.com/storage/'+logo"
         height="100"
       >
       <span class="slogan">{{ slogan }}</span>

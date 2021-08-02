@@ -36,8 +36,8 @@ export default {
       }
     }
     try {
-      const pages = await axios.get('http://moapi.test/api/pages', config)
-      // const venues = await axios.get('http://moapi.test/api/venues', config)
+      const pages = await axios.get('https://www.jbiddulph.com/api/pages', config)
+      // const venues = await axios.get('https://www.jbiddulph.com/api/venues', config)
       this.menu = pages.data
     } catch (err) {
       console.log(err)

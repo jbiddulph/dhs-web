@@ -20,8 +20,8 @@
 <script>
 export default {
   async asyncData ({ $axios }) {
-    const settings = await $axios.$get('http://moapi.test/api/settings')
-    const page = await $axios.$get('http://moapi.test/api/pages/home')
+    const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
+    const page = await $axios.$get('https://www.jbiddulph.com/api/pages/home')
     return { settings, page }
   },
   head () {

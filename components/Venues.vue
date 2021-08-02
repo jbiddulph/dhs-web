@@ -23,7 +23,7 @@ export default {
     //   }
     // }
     // try {
-    //   const venues = await axios.get('http://moapi.test/api/venues', config)
+    //   const venues = await axios.get('https://www.jbiddulph.com/api/venues', config)
     //   this.venues = venues.data.data
     // } catch (err) {
     //   console.log(err)
