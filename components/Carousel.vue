@@ -12,7 +12,6 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-    xherex:{{ selectedLoctaion }}
       <!-- Slides with img slot -->
       <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
       <div v-for="headers in allHeaders" :key="headers.id">
