@@ -7,7 +7,9 @@
       :logo="settings.logo"
       :slogan="settings.slogan"
     />
-    <Carousel />
+    <Carousel
+      :location="town"
+    />
     <!-- <MidBlocks /> -->
     <ContentArea
       :title="page.title"
@@ -24,6 +26,7 @@
         />
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 <script>
@@ -32,11 +35,13 @@ export default {
     const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
     const venues = await $axios.get('https://www.jbiddulph.com/api/venues')
     const page = await $axios.$get(`https://www.jbiddulph.com/api/pages/${params.slug}`)
+    const town = 'Brighton'
     const venuelist = venues.data
     return {
       settings,
       page,
-      venuelist
+      venuelist,
+      town
     }
   },
   head () {

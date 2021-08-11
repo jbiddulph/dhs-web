@@ -18,8 +18,8 @@
         <div v-for="header in headers.data" :key="header.id">
           <b-carousel-slide>
             <template #img>
-              <div v-if="selectedLoctaion">
-                <h2>{{ selectedLoctaion }}</h2>
+              <div v-if="selectedLocation" class="carousel-slide">
+                <h2>{{ selectedLocation }}</h2>
                 <h3>{{ header.title }}</h3>
                 <h4>{{ header.description }}</h4>
               </div>
@@ -27,7 +27,7 @@
                 class="d-block img-fluid w-100"
                 width="1024"
                 height="480"
-                :src="'https://www.jbiddulph.com/storage/'+header.image"
+                :src="'http://www.jbiddulph.com/storage/'+header.image"
                 :alt="header.title"
               >
             </template>
@@ -45,25 +45,28 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
-  // props: [
-  //   'location'
-  // ],
-  name: 'carousel',
-  props: ['location'],
+  name: 'Carousel',
+  props: {
+    location: {
+      type: String,
+      default: null
+    }
+  },
   data () {
     return {
       slide: 0,
       sliding: null,
-      selectedLoctaion: ''
+      selectedLocation: ''
     }
   },
   computed: mapGetters(['allHeaders']),
   created () {
-    console.log('thislocation: ', this.location)
     this.fetchLocationHeaders(this.location)
   },
   mounted () {
-    this.selectedLoctaion = this.location
+    if (this.location !== null) {
+      this.selectedLocation = this.location
+    }
   },
   methods: {
     ...mapActions([
@@ -81,6 +84,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/styles/_variables.scss';
   .carousel {
     flex-direction: column;
     object-fit: contain;
@@ -100,6 +104,38 @@ export default {
       object-fit: cover;
     }
   }
+  .carousel-slide {
+    position:relative;
+    h2 {
+      font-weight:lighter!important;
+      font-size:3rem;
+      position: absolute;
+      top: 30px;
+      left:0;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+    }
+    h3 {
+      position: absolute;
+      top: 150px;
+      right:0;
+      padding: 20px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      background-color: rgba(152, 180, 0, 0.8);
+    }
+    h4 {
+      position: absolute;
+      top: 223px;
+      right:0;
+      padding: 20px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      color: $primary;
+      background-color: rgba(152, 180, 0, 0.8);
+    }
+  }
   @media only screen and (max-width: 768px) {
     .carousel {
       height: 208px;
@@ -111,5 +147,15 @@ export default {
         object-fit: cover;
       }
     }
+    .carousel-slide {
+      h3 {
+        display: none;
+      }
+      h4 {
+        display: none;
+      }
+    }
+  }
+  @media only screen and (max-width: 400px)  {
   }
 </style>

@@ -33,6 +33,7 @@ export const actions = {
     return headers.data
   },
   async fetchLocationHeaders ({ commit }, location) {
+    console.log('Location', location)
     const headers = await axios.get(`https://www.jbiddulph.com/api/locations/${location}/headers`)
     commit('getHeaders', headers)
     return headers

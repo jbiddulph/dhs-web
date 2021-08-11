@@ -7,7 +7,9 @@
       :logo="settings.logo"
       :slogan="settings.slogan"
     />
-    <Carousel />
+    <Carousel
+      :location="town"
+    />
     <!-- <MidBlocks /> -->
     <ContentArea
       :title="page.title"
@@ -15,6 +17,7 @@
       :content="page.content"
       :image="page.image"
     />
+    <Footer />
   </div>
 </template>
 <script>
@@ -22,7 +25,8 @@ export default {
   async asyncData ({ $axios }) {
     const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
     const page = await $axios.$get('https://www.jbiddulph.com/api/pages/home')
-    return { settings, page }
+    const town = 'Brighton'
+    return { settings, page, town }
   },
   head () {
     return {

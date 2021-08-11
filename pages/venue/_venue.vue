@@ -12,17 +12,16 @@
     />
     <div class="venues">
       <!-- <h2>Here we are: {{ town }}</h2> -->
-      <div v-for="venue in location" :key="venue.id">
-        <div class="container venue">
+      <div v-for="venuedetails in venue" :key="venuedetails.id">
+        <div class="container venue-details">
+          <h2>
+            {{ venuedetails.venuename }}
+          </h2>
           <p>
-            <NuxtLink :to="`/venue/${venue.id}`">
-              {{ venue.venuename }}
-            </NuxtLink>
+            {{ venuedetails.town }}
           </p>
-          <p>
-            {{ venue.town }}
-          </p>
-          <p>{{ venue.county }}</p>
+          <p>{{ venuedetails.county }}</p>
+          {{venuedetails}}
         </div>
       </div>
     </div>
@@ -32,11 +31,13 @@
 <script>
 export default {
   async asyncData ({ params, $axios }) {
+    console.log('Params: ', params)
     const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
     // const page = await $axios.$get(`https://www.jbiddulph.com/api/pages/${params.slug}`)
-    const location = await $axios.$get(`https://www.jbiddulph.com/api/locations/${params.location}`)
-    const town = params.location
-    return { settings, location, town }
+    const venue = await $axios.$get(`https://www.jbiddulph.com/api/venues/${params.venue}`)
+    const town = 'Brighton'
+    console.log('Venue: ', venue)
+    return { settings, venue, town }
   },
   head () {
     return {

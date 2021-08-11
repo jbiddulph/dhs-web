@@ -12,15 +12,15 @@
     />
     <div class="venues">
       <!-- <h2>Here we are: {{ town }}</h2> -->
-      <div v-for="venue in location" :key="venue.id">
+      <div v-for="venue in venues.data" :key="venue.id">
         <div class="container venue">
           <p>
-            <NuxtLink :to="`/venue/${venue.id}`">
-              {{ venue.venuename }}
-            </NuxtLink>
+            {{ venue.venuename }}
           </p>
           <p>
-            {{ venue.town }}
+            <NuxtLink :to="`locations/${venue.town}`">
+              {{ venue.town }}
+            </NuxtLink>
           </p>
           <p>{{ venue.county }}</p>
         </div>
@@ -33,10 +33,9 @@
 export default {
   async asyncData ({ params, $axios }) {
     const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
-    // const page = await $axios.$get(`https://www.jbiddulph.com/api/pages/${params.slug}`)
-    const location = await $axios.$get(`https://www.jbiddulph.com/api/locations/${params.location}`)
     const town = params.location
-    return { settings, location, town }
+    const venues = await $axios.$get('https://www.jbiddulph.com/api/venues')
+    return { settings, venues, town }
   },
   head () {
     return {

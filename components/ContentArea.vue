@@ -5,7 +5,9 @@
         <b-col sm="7">
           <p>a:{{ title }}</p>
           <p>b:{{ description }}</p>
+          <!-- eslint-disable vue/no-v-html -->
           <div v-html="content" />
+          <!--eslint-enable-->
         </b-col>
         <b-col sm="5">
           <img :src="`https://www.jbiddulph.com/storage/`+image" width="300">

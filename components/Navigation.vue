@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="lg" type="dark" variant="primary">
       <b-navbar-brand href="#">
-        <strong>Just Sussex</strong>
+        <strong>Splendid Sussex</strong>
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" />
@@ -40,7 +40,9 @@ export default {
       // const venues = await axios.get('https://www.jbiddulph.com/api/venues', config)
       this.menu = pages.data
     } catch (err) {
-      console.log(err)
+      /* eslint-disable no-console */
+      console.error(err)
+      /* eslint-enable no-console */
     }
   },
   methods: {

@@ -2,7 +2,11 @@
   <div>
     <div class="container venue">
       <p>{{ name }}</p>
-      <p><NuxtLink :to="`locations/${town}`">{{ town }}</NuxtLink></p>
+      <p>
+        <NuxtLink :to="`locations/${town}`">
+          {{ town }}
+        </NuxtLink>
+      </p>
       <p>{{ county }}</p>
     </div>
   </div>
@@ -11,11 +15,20 @@
 <script>
 // import axios from 'axios'
 export default {
-  props: [
-    'name',
-    'town',
-    'county'
-  ],
+  props: {
+    name: {
+      type: String,
+      default: null
+    },
+    town: {
+      type: String,
+      default: null
+    },
+    county: {
+      type: String,
+      default: null
+    }
+  },
   async created () {
     // const config = {
     //   headers: {
