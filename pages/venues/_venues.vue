@@ -7,16 +7,18 @@
       :logo="settings.logo"
       :slogan="settings.slogan"
     />
-    <Carousel
+    <!-- <Carousel
       :location="town"
-    />
+    /> -->
     <div class="venues">
       <!-- <h2>Here we are: {{ town }}</h2> -->
       <div v-for="venue in venues.data" :key="venue.id">
         <div class="container venue">
-          <p>
-            {{ venue.venuename }}
-          </p>
+          <h5>
+            <NuxtLink :to="`/venue/${venue.id}`">
+              {{ venue.venuename }}
+            </NuxtLink>
+          </h5>
           <p>
             <NuxtLink :to="`locations/${venue.town}`">
               {{ venue.town }}
@@ -33,7 +35,7 @@
 export default {
   async asyncData ({ params, $axios }) {
     const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
-    const town = params.location
+    const town = 'brighton'
     const venues = await $axios.$get('https://www.jbiddulph.com/api/venues')
     return { settings, venues, town }
   },

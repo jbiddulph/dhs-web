@@ -21,7 +21,7 @@
             {{ venuedetails.town }}
           </p>
           <p>{{ venuedetails.county }}</p>
-          {{venuedetails}}
+          {{ venuedetails }}
         </div>
       </div>
     </div>
@@ -31,12 +31,10 @@
 <script>
 export default {
   async asyncData ({ params, $axios }) {
-    console.log('Params: ', params)
     const settings = await $axios.$get('https://www.jbiddulph.com/api/settings')
     // const page = await $axios.$get(`https://www.jbiddulph.com/api/pages/${params.slug}`)
     const venue = await $axios.$get(`https://www.jbiddulph.com/api/venues/${params.venue}`)
     const town = 'Brighton'
-    console.log('Venue: ', venue)
     return { settings, venue, town }
   },
   head () {

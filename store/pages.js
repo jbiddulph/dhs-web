@@ -25,7 +25,8 @@ export const actions = {
   },
   // GET LOCATION HEADERS
   async fetchLocationHeaders ({ commit }, location) {
-    const headers = await axios.get(`https://www.jbiddulph.com/api/headers/${location}`)
+    console.log('Location', location)
+    const headers = await axios.get(`https://www.jbiddulph.com/api/locations/${location}/headers`)
     commit('getHeaders', headers)
     return headers
   },

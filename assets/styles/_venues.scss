@@ -11,4 +11,27 @@
     border-radius: 5px;
     width:300px;
     flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+    p {
+        padding:0 10px;
+        a {
+            color: $primary;
+        }
+    }
+    h5 {
+      height: 60px;
+      display: flex;
+      background-color: $primary;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      justify-content: center;
+      flex-direction: column;
+      a {
+        padding: 0 10px;
+        color: white;
+        
+        width:100%;
+      }
+    }
 }

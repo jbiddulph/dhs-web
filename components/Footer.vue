@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer>
+    <footer class="mt-4">
       <div>
         Hello
       </div>

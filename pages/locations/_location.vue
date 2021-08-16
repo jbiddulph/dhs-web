@@ -10,15 +10,15 @@
     <Carousel
       :location="town"
     />
-    <div class="venues">
+    <div class="venues mb-4">
       <!-- <h2>Here we are: {{ town }}</h2> -->
       <div v-for="venue in location" :key="venue.id">
         <div class="container venue">
-          <p>
+          <h5>
             <NuxtLink :to="`/venue/${venue.id}`">
               {{ venue.venuename }}
             </NuxtLink>
-          </p>
+          </h5>
           <p>
             {{ venue.town }}
           </p>
